@@ -18,3 +18,20 @@ Goal difference = Arsenal goals − opponent goals
 
 ## Status
 🚧 Project setup complete. Data ingestion next.
+
+## Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/Rohayne/arsenal-player-impact.git
+cd arsenal-player-impact
+
+2. Create and activate a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+3. Install Dependencies
+pip install -r requirements.txt
+
+4. Launch Jupyter Notebook
+jupyter notebook
