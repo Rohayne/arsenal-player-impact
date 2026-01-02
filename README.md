@@ -1,14 +1,24 @@
-# Arsenal Player Impact Analysis
+## Analysis 1 — Minutes-based Player Impact (Ridge & Lasso)
 
-## Project Goal
-Quantify which Arsenal players have the greatest impact on match outcomes using supervised machine learning.
+**Question:** Which Arsenal players are most associated with improved match outcomes?
 
-## Motivation
-Traditional metrics such as goals and assists fail to capture the full contribution of defenders and midfielders.
-This project uses match-level and player-level data to model Arsenal's goal difference and identify true drivers of success.
+**Approach:**
+- Target: `goal_diff = GF - GA` (match-level)
+- Features: player minutes (one feature per player) + `is_home`
+- Models:
+  - Ridge regression for stable impact estimates under multicollinearity
+  - Lasso regression for a sparse shortlist of impactful players
+- Interpretation focused on players with **≥900 total minutes** to reduce small-sample noise.
 
-## Target Variable
-Goal difference = Arsenal goals − opponent goals
+### Key visuals
+![Top & Bottom Impact Players](reports/figures/impact_top_bottom_ridge.png)
+![Minutes vs Impact](reports/figures/minutes_vs_impact.png)
+
+### Notes on interpretation
+- Coefficients represent **associations**, not causal effects.
+- Predictive performance (R²) is not the main goal; the emphasis is interpretability and robustness.
+- Player impact is context-dependent (teammates, tactics, opposition, season effects).
+
 
 ## Project Structure
 - `data/`: raw and processed datasets
